@@ -12,11 +12,10 @@ namespace PROJETO01.Dados.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var conn = @"Data source = 201.62.57.93; 
-                                     Database = dbLAB2_2020; 
-                                     User ID = 201.62.57.93; 
-                                     Password = 040161";
-            optionsBuilder.UseSqlServer(conn);
+            var conn = @"Data source = 201.62.57.93;
+                                    Database = BD040161; 
+                                    User ID = RA040161;
+                                    Password = 040161";
         }
 
         //Nome das Classes que representarão o Banco de Dados
@@ -52,13 +51,13 @@ namespace PROJETO01.Dados.EntityFramework
 
             modelBuilder.Entity<Cidade>()
              .Property("CidadeId")
-             .HasColumnName("Nome_Est")
+             .HasColumnName("Nome_Cidade")
              .HasColumnType("int")
              .IsRequired();
 
             modelBuilder.Entity<Cidade>()
              .Property("Nome")
-             .HasColumnName("Nome_Est")
+             .HasColumnName("Nome_Cidade")
              .HasColumnType("varchar(100)")
              .IsRequired();
 

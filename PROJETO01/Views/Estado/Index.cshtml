@@ -9,16 +9,25 @@
 </h4>
 
 
-    <div class="alert alert-warning">
-        OOOHH NOO.
-    </div>
+<div class="alert alert-warning">
+    OOOHH NOO.
+</div>
 
 
 <input type="text" value="@Model.UF" class="form-control" />
 <br />
 <input type="text" value="@Model.Nome" />
+<label for="cars">Choose a car:</label>
 
-<br /><br />
+<select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+</select>
+
+<br />
+<br />
 <button class="btn btn-block btn-success">
     SUCESSO!
 </button>

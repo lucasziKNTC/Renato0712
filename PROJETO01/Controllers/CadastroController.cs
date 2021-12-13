@@ -11,20 +11,7 @@ namespace PROJETO01.Controllers
     public class CadastroController : Controller
     {
  
-            public IActionResult Index(string nome, string endereço, string cpf, int cep, int numero, string bairro, string complemento      )
-            {
-                var objeto = new Cadastro();
-                objeto.Nome = nome;
-                objeto.Endereço = endereço;
-                objeto.Cpf = cpf;
-                objeto.Cep = cep;
-                objeto.Numero = numero;
-                objeto.Bairro = bairro;
-                objeto.Complemento = complemento;
-
-                return View(objeto);
-            }
-
+ 
             [HttpGet]
             public IActionResult Adicionar()
             {
@@ -43,7 +30,7 @@ namespace PROJETO01.Controllers
                 }
                 else
                 {
-                    obj.Nome = cadastro.Nome;
+                    obj: = cadastro.Nome;
                     db.Cadastro.Update(obj);
                 }
 

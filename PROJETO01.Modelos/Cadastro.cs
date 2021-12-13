@@ -8,6 +8,8 @@ namespace PROJETO01.Modelos
     {
         public string Nome { get; set; }
 
+        public int PessoaId { get; set; }
+
         public string Endereço { get; set; }
 
         public string Cpf { get; set; }
