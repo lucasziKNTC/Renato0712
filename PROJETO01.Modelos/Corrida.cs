@@ -6,13 +6,13 @@ namespace PROJETO01.Modelos
 {
   public  class Corrida
     {
-        public int CodMotorista{ get; set; }
+        public int MotoristaId{ get; set; }
 
-        public int CodPassageiro { get; set; }
+        public int PessoaId { get; set; }
 
         public string EstadoID { get; set; }
 
-        public string Cidade { get; set; }
+        public string CidadeId { get; set; }
 
         public string  Avaliacao { get; set; }
     }

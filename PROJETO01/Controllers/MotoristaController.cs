@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROJETO01.Controllers
 {
-    public class Motorista : Controller
+    public class MotoristaController : Controller
     {
         public IActionResult Index()
         {

@@ -11,14 +11,7 @@ namespace PROJETO01.Controllers
 {
     public class EstadoController : Controller
     {
-        public IActionResult Index(string uf, string estado)
-        {
-            var objeto = new Estado();
-            objeto.UF = uf;
-            objeto.Nome = estado;
-
-            return View(objeto);
-        }
+       
 
         [HttpGet]
         public IActionResult Adicionar()
@@ -51,7 +44,7 @@ namespace PROJETO01.Controllers
         public IActionResult Editar(string uf)
         {
             var db = new Contexto();
-            var estado = db.Estado.First(item => item.UF == uf);
+            var estado = db.Estado.FirstOrDefault(item => item.UF == uf);
             return View("Adicionar", estado);
         }
 

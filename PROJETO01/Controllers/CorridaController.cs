@@ -9,71 +9,59 @@ using System.Threading.Tasks;
 namespace PROJETO01.Controllers
 {
     public class CorridaController : Controller
-    {
-
-        public IActionResult Index(int CodMotorista, int CodPassageiro, string EstadoID, string Cidade, string avaliacao)
-        {
-            var objeto = new Corrida();
-            objeto.CodMotorista = CodMotorista;
-            objeto.CodPassageiro = CodPassageiro;
-            objeto.EstadoID = EstadoID;
-            objeto.Cidade = Cidade;
-            objeto.Avaliacao = avaliacao;
-            return View(objeto);
-        }
-
+    { 
         [HttpGet]
         public IActionResult Adicionar()
         {
             return View();
         }
 
-        public IActionResult AdicionarConfirmacao(Corrida corrida)
-        {
-            var db = new Contexto();
+        //public IActionResult AdicionarConfirmacao(Corrida corrida)
+        //{
+        //    //var db = new Contexto();
 
-            var obj = db.Corrida.FirstOrDefault(f => f.CodMotorista == corrida.CodMotorista);
+        //    //var obj = db.Corrida.FirstOrDefault(f => f.PessoaId == corrida.PessoaId);
 
-            if (obj == null)
-            {
-                db.Corrida.Add(corrida);
-            }
-            else
-            {
-                obj.CodMotorista = corrida.CodMotorista;
-                db.Corrida.Update(obj);
-            }
+        //    //if (obj == null)
+        //    //{
+        //    //    db.Corrida.Add(corrida);
+        //    //}
+        //    //else
+        //    //{
+        //    //    obj.CodMotorista = corrida.CodMotorista;
+        //    //    db.Corrida.Update(obj);
+        //    //}
 
-            db.SaveChanges();
+        //    //db.SaveChanges();
 
-            return RedirectToAction("Listar");
-        }
+        //    //return RedirectToAction("Listar");
+        //}
 
-        [HttpGet]
-        public IActionResult Editar(string uf)
-        {
-            var db = new Contexto();
-            var estado = db.Estado.First(item => item.UF == uf);
-            return View("Adicionar", estado);
-        }
+        //[HttpGet]
+        //public IActionResult Editar(int CodMotorista)
+        //{
+        //    var db = new Contexto();
+        //    var estado = db.Estado.First(item => item.UF == uf);
+        //    return View("Adicionar", estado);
+        //}
 
-        public IActionResult Listar()
-        {
+        //public IActionResult Listar()
+        //{
 
-            //SELECT * FROM Estado
-            var listaDeEstados = new Contexto().Estado.ToList();
+        //    //SELECT * FROM Estado
+        //    var listaDeEstados = new Contexto().Estado.ToList();
 
-            return View(listaDeEstados);
-        }
+        //    return View(listaDeEstados);
+        //}
 
-        public IActionResult Excluir(string uf)
-        {
-            var db = new Contexto();
-            var estado = db.Estado.First(f => f.UF == uf);
-            db.Estado.Remove(estado);
-            db.SaveChanges();
+        //public IActionResult Excluir(string uf)
+        //{
+        //    var db = new Contexto();
+        //    var estado = db.Estado.First(f => f.UF == uf);
+        //    db.Estado.Remove(estado);
+        //    db.SaveChanges();
 
-            return RedirectToAction("Listar");
-        }
+        //    return RedirectToAction("Listar");
+        //}
     }
 }

@@ -10,61 +10,62 @@ namespace PROJETO01.Controllers
 {
     public class CadastroController : Controller
     {
- 
- 
-            [HttpGet]
-            public IActionResult Adicionar()
+       
+
+        [HttpGet]
+        public IActionResult Adicionar()
+        {
+            return View();
+        }
+
+        public IActionResult AdicionarConfirmacao(Cadastro cadastro)
+        {
+            var db = new Contexto();
+
+            var obj = db.Cadastro.FirstOrDefault(f => f.PessoaId == cadastro.PessoaId);
+
+            if (obj == null)
             {
-                return View();
+                db.Cadastro.Add(cadastro);
+            }
+            else
+            {
+                obj.Cpf = cadastro.Cpf;
+                obj.Nome = cadastro.Nome;
+                db.Cadastro.Update(obj);
             }
 
-            public IActionResult AdicionarConfirmacao(Cadastro cadastro)
-            {
-                var db = new Contexto();
+            db.SaveChanges();
 
-                var obj = db.Cadastro.FirstOrDefault(f => f.Nome == cadastro.Nome);
+            return RedirectToAction("Listar");
+        }
 
-                if (obj == null)
-                {
-                    db.Cadastro.Add(cadastro);
-                }
-                else
-                {
-                    obj: = cadastro.Nome;
-                    db.Cadastro.Update(obj);
-                }
+        [HttpGet]
+        public IActionResult Editar(int PessoaId)
+        {
+            var db = new Contexto();
+            var estado = db.Cadastro.First(item => item.PessoaId == PessoaId);
+            return View("Adicionar", estado);
+        }
 
-                db.SaveChanges();
+        public IActionResult Listar()
+        {
 
-                return RedirectToAction("Listar");
-            }
+            //SELECT * FROM Estado
+            var listaDeCadastro = new Contexto().Cadastro.ToList();
 
-            [HttpGet]
-            public IActionResult Editar(string uf)
-            {
-                var db = new Contexto();
-                var estado = db.Estado.First(item => item.UF == uf);
-                return View("Adicionar", estado);
-            }
+            return View(listaDeCadastro);
+        }
 
-            public IActionResult Listar()
-            {
+        public IActionResult Excluir(int PessoaId)
+        {
+            var db = new Contexto();
+            var Cadastro = db.Cadastro.First(f => f.PessoaId == PessoaId);
+            db.Cadastro.Remove(Cadastro);
+            db.SaveChanges();
 
-                //SELECT * FROM Estado
-                var listaDeEstados = new Contexto().Estado.ToList();
-
-                return View(listaDeEstados);
-            }
-
-            public IActionResult Excluir(string uf)
-            {
-                var db = new Contexto();
-                var estado = db.Estado.First(f => f.UF == uf);
-                db.Estado.Remove(estado);
-                db.SaveChanges();
-
-                return RedirectToAction("Listar");
-            }
+            return RedirectToAction("Listar");
         }
     }
+}
 
