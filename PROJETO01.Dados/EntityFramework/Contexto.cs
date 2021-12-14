@@ -68,6 +68,12 @@ namespace PROJETO01.Dados.EntityFramework
            .HasColumnName("UF")
            .HasColumnType("char(2)")
            .IsRequired();
+
+            modelBuilder.Entity<Cidade>()
+                .HasOne(f => f.Estado)
+                .WithMany()
+                .HasForeignKey(f => f.UF);
+
             //--------------------------------------------------
 
             modelBuilder.Entity<Cadastro>()

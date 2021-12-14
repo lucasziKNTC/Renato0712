@@ -33,6 +33,7 @@ namespace PROJETO01.Controllers
                 obj.Nome = cadastro.Nome;
                 obj.PessoaId = cadastro.PessoaId;
                 obj.Endereço = cadastro.Endereço;
+                obj.CidadeID = cadastro.CidadeID;
                 obj.Cpf = cadastro.Cpf;
                 obj.Cep = cadastro.Cep;
                 obj.Numero = cadastro.Numero;

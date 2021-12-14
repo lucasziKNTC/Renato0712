@@ -32,14 +32,13 @@
             <td>@item.Nome</td>
             <td>@item.PessoaId</td>
             <td>@item.Endereço</td>
-            <td>@item.Endereço</td>
-            <td>@item.Cpf</td>
-
+            <td>@Convert.ToInt64(@item.Cpf).ToString(@"000\.000\.000\-00")</td>
             <td>@item.Cep</td>
             <td>@item.Numero</td>
             <td>@item.Bairro</td>
             <td>@item.Complemento</td>
-   
+            <td>@item.CidadeID</td>
+         
 
 
 
@@ -55,20 +54,3 @@
         }
     </tbody>
 </table>
- public string Nome { get; set; }
-
-        public int PessoaId { get; set; }
-
-        public string Endereço { get; set; }
-
-        public string Cpf { get; set; }
-
-        public int Cep { get; set; }
-
-        public int Numero { get; set; }
-
-        public string Bairro { get; set; }
-
-        public string Complemento { get; set; }
-
-        public int CidadeID { get; set; }

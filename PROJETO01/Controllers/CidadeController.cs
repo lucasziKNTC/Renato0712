@@ -20,6 +20,52 @@ namespace PROJETO01.Controllers
         [HttpPost]
         public IActionResult AdicionarConfirmacao(Cidade cidade)
         {
+
+            var db = new Contexto();
+
+            var obj = db.Cidade.FirstOrDefault(f => f.CidadeID == cidade.CidadeID);
+
+            if (obj == null)
+            {
+                db.Cidade.Add(cidade);
+            }
+            else
+            {
+                obj.UF = cidade.UF;
+                obj.Nome = cidade.Nome;
+                db.Cidade.Update(obj);
+            }
+
+            db.SaveChanges();
+
+            return RedirectToAction("Listar");
+
+        }
+        public IActionResult Listar()
+        {
+
+            //SELECT * FROM Estado
+            var listaDeEstados = new Contexto().Cidade.ToList();
+
+            return View(listaDeEstados);
+        }
+
+
+        [HttpGet]
+        public IActionResult Editar(int CidadeId)
+        {
+            var db = new Contexto();
+            var cidade = db.Cidade.FirstOrDefault(item => item.CidadeID == CidadeId);
+            return View("Adicionar", cidade);
+        }
+
+        public IActionResult Excluir(int CidadeId)
+        {
+            var db = new Contexto();
+            var cidade = db.Cidade.First(f => f.CidadeID == CidadeId);
+            db.Cidade.Remove(cidade);
+            db.SaveChanges();
+
             return RedirectToAction("Listar");
         }
     }
