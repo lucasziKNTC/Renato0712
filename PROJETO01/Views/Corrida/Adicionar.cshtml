@@ -1,0 +1,42 @@
+﻿@model PROJETO01.Modelos.Corrida
+
+<form asp-controller="Corrida" asp-action="AdicionarConfirmacao" method="post">
+    <div class="mb-3">
+        <label for="MotoristaId" class="form-label">MotoristaId:</label>
+        <input asp-for="MotoristaId" type="text" class="form-control" placeholder="Digite o Id do Motorista" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="IdSoliictacao" class="form-label">IdSolicitacao:</label>
+        <input asp-for="IdSolicitacao" type="text" class="form-control" placeholder="Digite o id de solicitacao" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="PessoaId" class="form-label">PessoaId:</label>
+        <input asp-for="PessoaId" type="text" class="form-control" placeholder="Digite o id da Pessoa" />
+    </div>
+
+    <div class="mb-3">
+        <label for="CidadeId" class="form-label">CidadeId:</label>
+        <input asp-for="CidadeId" type="text" class="form-control" placeholder="Digite o id da cidade" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Avaliacao" class="form-label">avaliacao:</label>
+        <input asp-for="Avaliacao" type="text" class="form-control" placeholder="Digite a avalicaao" />
+    </div>
+
+    <hr />
+
+    <a href="#" class="btn btn-secondary" onclick="javascript:history.back()">
+        VOLTAR
+    </a>
+
+    <button type="submit" class="btn btn-success float-right">
+        SALVAR
+    </button>
+
+</form>

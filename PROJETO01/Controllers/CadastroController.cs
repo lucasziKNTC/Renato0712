@@ -30,8 +30,14 @@ namespace PROJETO01.Controllers
             }
             else
             {
-                obj.Cpf = cadastro.Cpf;
                 obj.Nome = cadastro.Nome;
+                obj.PessoaId = cadastro.PessoaId;
+                obj.Endereço = cadastro.Endereço;
+                obj.Cpf = cadastro.Cpf;
+                obj.Cep = cadastro.Cep;
+                obj.Numero = cadastro.Numero;
+                obj.Bairro = cadastro.Nome;
+                obj.Complemento = cadastro.Complemento;
                 db.Cadastro.Update(obj);
             }
 

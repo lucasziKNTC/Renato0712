@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PROJETO01.Modelos
 {
-    class Motorista
+ public class Motorista
     {
         public int MotoristaId { get; set; }
 

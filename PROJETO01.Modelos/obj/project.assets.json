@@ -8,25 +8,25 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\040161\\.nuget\\packages\\": {},
+    "C:\\Users\\Lucas\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\040161\\Desktop\\github\\Renato0712\\PROJETO01.Modelos\\PROJETO01.Modelos.csproj",
+      "projectUniqueName": "C:\\Users\\Lucas\\Desktop\\Git\\Renato0712\\PROJETO01.Modelos\\PROJETO01.Modelos.csproj",
       "projectName": "PROJETO01.Modelos",
-      "projectPath": "C:\\Users\\040161\\Desktop\\github\\Renato0712\\PROJETO01.Modelos\\PROJETO01.Modelos.csproj",
-      "packagesPath": "C:\\Users\\040161\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\040161\\Desktop\\github\\Renato0712\\PROJETO01.Modelos\\obj\\",
+      "projectPath": "C:\\Users\\Lucas\\Desktop\\Git\\Renato0712\\PROJETO01.Modelos\\PROJETO01.Modelos.csproj",
+      "packagesPath": "C:\\Users\\Lucas\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lucas\\Desktop\\Git\\Renato0712\\PROJETO01.Modelos\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\040161\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lucas\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"

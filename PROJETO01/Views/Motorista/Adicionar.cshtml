@@ -1,0 +1,37 @@
+﻿@model PROJETO01.Modelos.Motorista
+
+<form asp-controller="Motorista" asp-action="AdicionarConfirmacao" method="post">
+    <div class="mb-3">
+        <label for="MotoristaId" class="form-label">MotoristaId:</label>
+        <input asp-for="MotoristaId" type="text" class="form-control" placeholder="Digite o Id do Motorista" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Nome" class="form-label">Nome:</label>
+        <input asp-for="Nome" type="text" class="form-control" placeholder="Digite o Nome do motorista" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Telefone" class="form-label">Telefone:</label>
+        <input asp-for="Telefone" type="text" class="form-control" placeholder="Digite o telefone da pessoa" />
+    </div>
+
+
+    <div class="mb-3">
+        <label for="Sexo" class="form-label">Sexo:</label>
+        <input asp-for="Sexo" type="text" class="form-control" placeholder="Digite o sexo da pessoa" />
+    </div>
+
+    <hr />
+
+    <a href="#" class="btn btn-secondary" onclick="javascript:history.back()">
+        VOLTAR
+    </a>
+
+    <button type="submit" class="btn btn-success float-right">
+        SALVAR
+    </button>
+
+</form>

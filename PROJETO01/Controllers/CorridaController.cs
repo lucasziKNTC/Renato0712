@@ -9,59 +9,65 @@ using System.Threading.Tasks;
 namespace PROJETO01.Controllers
 {
     public class CorridaController : Controller
-    { 
+    {
+
+
         [HttpGet]
         public IActionResult Adicionar()
         {
             return View();
         }
 
-        //public IActionResult AdicionarConfirmacao(Corrida corrida)
-        //{
-        //    //var db = new Contexto();
+        public IActionResult AdicionarConfirmacao(Corrida corrida)
+        {
+            var db = new Contexto();
 
-        //    //var obj = db.Corrida.FirstOrDefault(f => f.PessoaId == corrida.PessoaId);
+            var obj = db.Corrida.FirstOrDefault(f => f.IdSolicitacao == corrida.IdSolicitacao);
 
-        //    //if (obj == null)
-        //    //{
-        //    //    db.Corrida.Add(corrida);
-        //    //}
-        //    //else
-        //    //{
-        //    //    obj.CodMotorista = corrida.CodMotorista;
-        //    //    db.Corrida.Update(obj);
-        //    //}
+            if (obj == null)
+            {
+                db.Corrida.Add(corrida);
+            }
+            else
+            {
+                obj.MotoristaId = corrida.MotoristaId;
+                obj.PessoaId = corrida.PessoaId;
+                obj.Avaliacao = corrida.Avaliacao;
+                obj.IdSolicitacao = corrida.IdSolicitacao;
+                obj.MotoristaId = corrida.IdSolicitacao;
+                db.Corrida.Update(obj);
+            }
 
-        //    //db.SaveChanges();
+            db.SaveChanges();
 
-        //    //return RedirectToAction("Listar");
-        //}
+            return RedirectToAction("Listar");
+        }
 
-        //[HttpGet]
-        //public IActionResult Editar(int CodMotorista)
-        //{
-        //    var db = new Contexto();
-        //    var estado = db.Estado.First(item => item.UF == uf);
-        //    return View("Adicionar", estado);
-        //}
+        [HttpGet]
+        public IActionResult Editar(int IdSolicitação)
+        {
+            var db = new Contexto();
+            var corrida = db.Corrida.First(item => item.IdSolicitacao == IdSolicitação);
+            return View("Adicionar", corrida);
+        }
 
-        //public IActionResult Listar()
-        //{
+        public IActionResult Listar()
+        {
 
-        //    //SELECT * FROM Estado
-        //    var listaDeEstados = new Contexto().Estado.ToList();
+            //SELECT * FROM Estado
+            var listaDeSolicitação = new Contexto().Corrida.ToList();
 
-        //    return View(listaDeEstados);
-        //}
+            return View(listaDeSolicitação);
+        }
 
-        //public IActionResult Excluir(string uf)
-        //{
-        //    var db = new Contexto();
-        //    var estado = db.Estado.First(f => f.UF == uf);
-        //    db.Estado.Remove(estado);
-        //    db.SaveChanges();
+        public IActionResult Excluir(int IdSolicitação)
+        {
+            var db = new Contexto();
+            var Corrida = db.Corrida.First(f => f.IdSolicitacao == IdSolicitação);
+            db.Corrida.Remove(Corrida);
+            db.SaveChanges();
 
-        //    return RedirectToAction("Listar");
-        //}
+            return RedirectToAction("Listar");
+        }
     }
 }

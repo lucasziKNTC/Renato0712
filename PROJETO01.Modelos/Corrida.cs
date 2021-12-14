@@ -8,11 +8,11 @@ namespace PROJETO01.Modelos
     {
         public int MotoristaId{ get; set; }
 
+        public int IdSolicitacao{ get; set; }
+
         public int PessoaId { get; set; }
 
-        public string EstadoID { get; set; }
-
-        public string CidadeId { get; set; }
+        public int CidadeId { get; set; }
 
         public string  Avaliacao { get; set; }
     }

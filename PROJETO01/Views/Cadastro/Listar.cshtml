@@ -1,0 +1,74 @@
+﻿@model List<PROJETO01.Modelos.Cadastro>
+
+<h3>
+    CADASTRO DE PESSOAS
+    <a class="btn btn-sm btn-primary float-right" href="/Cadastro/Adicionar">
+        + ADICIONAR
+    </a>
+</h3>
+
+<table class="table table-hover ">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>PessoaId</th>
+            <th>Endereço</th>
+            <th>Cpf</th>
+            <th>Cep</th>
+            <th>Numero</th>
+
+            <th>Bairro</th>
+            <th>Complemento</th>
+            <th>CidadeId</th>
+
+
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.PessoaId</td>
+            <td>@item.Endereço</td>
+            <td>@item.Endereço</td>
+            <td>@item.Cpf</td>
+
+            <td>@item.Cep</td>
+            <td>@item.Numero</td>
+            <td>@item.Bairro</td>
+            <td>@item.Complemento</td>
+   
+
+
+
+            <td>
+                <a href="/Cadastro/Editar?PessoaId=@item.PessoaId" class="btn btn-sm btn-warning">
+                    Editar
+                </a>
+                <a href="/Cadastro/Excluir?PessoaId=@item.PessoaId" class="btn btn-sm btn-danger">
+                    Excluir
+                </a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+ public string Nome { get; set; }
+
+        public int PessoaId { get; set; }
+
+        public string Endereço { get; set; }
+
+        public string Cpf { get; set; }
+
+        public int Cep { get; set; }
+
+        public int Numero { get; set; }
+
+        public string Bairro { get; set; }
+
+        public string Complemento { get; set; }
+
+        public int CidadeID { get; set; }

@@ -29,6 +29,8 @@ namespace PROJETO01.Dados.EntityFramework
 
         public DbSet<Corrida> Corrida { get; set; }
 
+        public DbSet<Motorista> Motorista { get; set; }
+
 
         //Definição das características das classes com as tabelas
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,11 +51,6 @@ namespace PROJETO01.Dados.EntityFramework
                 .HasColumnType("varchar(200)")
                 .IsRequired();
             //--------------------------------------------------
-
-            modelBuilder.Entity<Cidade>()
-                .ToTable("Cidade")
-                .HasKey("CidadeID");
-
             modelBuilder.Entity<Cidade>()
              .Property(p => p.CidadeID)
              .HasColumnName("cidadeId")
@@ -128,40 +125,80 @@ namespace PROJETO01.Dados.EntityFramework
 
 
             modelBuilder.Entity<Corrida>()
-           .Property(p => p.CidadeId)
-           .HasColumnName("CidadeID")
+            .ToTable("SolicitaçãoCorrida")
+            .HasKey("IdSolicitacao");
+
+
+            modelBuilder.Entity<Corrida>()
+            .Property(p => p.IdSolicitacao)
+            .HasColumnName("IdSolicitação")
+            .HasColumnType("int")
+            .IsRequired();
+
+            modelBuilder.Entity<Corrida>()
+           .Property(p => p.PessoaId)
+           .HasColumnName("PessoaId")
            .HasColumnType("int")
            .IsRequired();
 
 
 
+
             modelBuilder.Entity<Corrida>()
-             .Property("PessoaId")
-             .HasColumnName("Nome_Est")
-             .HasColumnType("varchar(100)")
+            .Property(p => p.MotoristaId)
+             .HasColumnName("MotoristaId")
+             .HasColumnType("int")
              .IsRequired();
 
             modelBuilder.Entity<Corrida>()
-                .ToTable("EstadoId")
-                .HasKey("UF");
-
-            modelBuilder.Entity<Corrida>()
-            .Property("Cidade")
-            .HasColumnName("CidadeId")
-            .HasColumnType("int")
+             .Property(p => p.Avaliacao)
+            .HasColumnName("Avaliaco")
+            .HasColumnType("varchar(100)")
             .IsRequired();
 
             modelBuilder.Entity<Corrida>()
-            .Property("PessoaId")
-            .HasColumnName("PessoaId")
-            .HasColumnType("int")
-            .IsRequired();
-            modelBuilder.Entity<Cadastro>()
-           .Property(p => p.CidadeID)
-           .HasColumnName("CidadeID")
+          .Property("CidadeId")
+          .HasColumnName("CidadeId")
+          .HasColumnType("int")
+          .IsRequired();
+
+
+
+            //
+
+            modelBuilder.Entity<Motorista>()
+           .Property(p => p.MotoristaId)
+           .HasColumnName("MotoristaId")
            .HasColumnType("int")
            .IsRequired();
 
+            modelBuilder.Entity<Motorista>()
+        .Property(p => p.Nome)
+        .HasColumnName("Nome")
+        .HasColumnType("varchar(100)")
+        .IsRequired();
+
+
+
+            modelBuilder.Entity<Motorista>()
+        .Property(p => p.CidadeId)
+        .HasColumnName("CidadeId")
+        .HasColumnType("int")
+        .IsRequired();
+
+            modelBuilder.Entity<Motorista>()
+        .Property(p => p.Sexo)
+        .HasColumnName("Sexo")
+        .HasColumnType("char(1)")
+        .IsRequired();
+
+            modelBuilder.Entity<Motorista>()
+        .Property(p => p.Telefone)
+        .HasColumnName("Telefone")
+        .HasColumnType("int")
+        .IsRequired();
+
+            //
 
 
             base.OnModelCreating(modelBuilder);
